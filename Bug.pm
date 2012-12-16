@@ -14,8 +14,7 @@ has 'size' => (
     lazy     => 1,
     default  => sub {
         my $self = shift;
-        $self->default_size();
-        return;
+        return $self->_default_size();
     }
 );
 
@@ -54,7 +53,7 @@ has 'childreen' => (
     isa => 'ArrayRef'
 );
 
-sub default_size {
+sub _default_size {
     my $self = shift;
     my $f_size =
       (   $self->father
