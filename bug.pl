@@ -7,6 +7,7 @@ use Data::Dumper;
 use Bug;
 
 my $m = Bug->new(
+    generation => 0,
     gender => 'female',
     parents_genes => {
         mother => {
@@ -21,6 +22,7 @@ my $m = Bug->new(
 );
 
 my $f = Bug->new(
+    generation => 0,
     gender => 'male',
     parents_genes => {
         mother => {
@@ -35,13 +37,16 @@ my $f = Bug->new(
 $m->size;
 $f->size;
 
-print Dumper $m;
+#print Dumper $m;
 
-print Dumper $f;
+#print Dumper $f;
 
 my $c = Bug->new(   
                     father => $f,
-                    mother => $m
+                    mother => $m,
                 );
 $c->size;
+print Dumper $c;
+
+#print $c->father_fertility . "\n";
 print Dumper $c;
